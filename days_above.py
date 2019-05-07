@@ -9,7 +9,7 @@ import xarray as xa
 from dask.diagnostics import ProgressBar
 
 #%%
-with xa.open_mfdataset('*.nc',concat_dim='time',autoclose=True,lock=False) as dat:
+with xa.open_mfdataset('.\data\ESA-CCI-SM\*.nc',concat_dim='time') as dat:
     nyears = dat.sm.shape[0]/365.25
 
     b15 = dat.sm > 0.15
